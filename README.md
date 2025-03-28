@@ -164,4 +164,15 @@ App contains both in memory database and service directory .
         └── main.go
 ```
 
-Run app
+docker is required to run this project
+start required services i.e Kafka , consul , Jaegar, mySql
+
+```
+make
+```
+
+Run induvidual microservice in their seperate folder
+
+```
+    go run cmd/*.go
+```
