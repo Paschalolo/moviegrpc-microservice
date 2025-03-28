@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: metadata
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: metadata
+  template:
+    metadata:
+      labels:
+        app: metadata
+    spec:
+      containers:
+      - name: metadata
+        image: paschalolo/metadata:1.0.0
+        imagePullPolicy : IfNotPresent
+        ports:
+        - containerPort: 8081
+        resources:
+          requests:
+            cpu: "100m" # 100 millicores
+            memory: "128Mi" # 128 mebibytes
+          limits:
+            cpu: "500m" # 500 millicores
+            memory: "512Mi" # 512 mebibytes

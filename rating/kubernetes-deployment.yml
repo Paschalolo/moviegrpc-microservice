@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rating
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rating
+  template:
+    metadata:
+      labels:
+        app: rating
+    spec:
+      containers:
+      - name: rating
+        image: paschalolo/rating:1.0.1
+        imagePullPolicy : IfNotPresent
+        ports:
+        - containerPort: 8082
+        resources:
+          requests:
+            cpu: "100m" # 100 millicores
+            memory: "128Mi" # 128 mebibytes
+          limits:
+            cpu: "500m" # 500 millicores
+            memory: "512Mi" # 512 mebibytes
